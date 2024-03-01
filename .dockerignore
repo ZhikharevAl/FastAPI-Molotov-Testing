@@ -1,0 +1,9 @@
+.github
+.idea
+FastApi-Molotov-Testing.iml
+api_requests
+__pycache__
+.gitignore
+venv
+.git
+app/__pycache__
