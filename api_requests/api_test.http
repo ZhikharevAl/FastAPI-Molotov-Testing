@@ -1,0 +1,53 @@
+### Successful test: check response status is 200
+GET {{url}}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Check response status and content-type
+GET {{url}}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("Response content-type is json", function () {
+        const type = response.contentType.mimeType;
+        client.assert(type === "application/json", `Expected 'application/json' but received '${type}'`);
+    });
+%}
+
+### Check response headers
+GET {{url}}
+
+> {%
+    client.test("Headers option exists", function () {
+        client.assert(response.headers.hasOwnProperty("headers"), "Cannot find 'headers' option in response");
+    });
+%}
+
+### Checking the response to a POST request
+POST {{url}}?name={{$random.alphabetic(10)}}&description={{$random.email}}
+Content-Type: application/json
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("Response content-type is json", function () {
+        const type = response.contentType.mimeType;
+        client.assert(type === "application/json", `Expected 'application/json' but received '${type}'`);
+    });
+    client.test("Response body contains 'ok' and 'task_id'", function () {
+        console.log(response.body)
+        const body = response.body;
+        client.assert(body.hasOwnProperty("ok"), "Response body does not contain 'ok'");
+        client.assert(body.ok === true, "'ok' is not true");
+        client.assert(body.hasOwnProperty("task_id"), "Response body does not contain 'task_id'");
+    });
+%}

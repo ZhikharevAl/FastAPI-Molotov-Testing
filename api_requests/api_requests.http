@@ -1,0 +1,9 @@
+### Get request
+GET {{url}}
+Accept: application/json
+
+
+### Send POST request with body as parameters
+POST {{url}}?name={{$random.alphabetic(10)}}&description={{$random.email}}
+Content-Type: application/json
+Accept: application/json
