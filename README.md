@@ -18,13 +18,13 @@ pip install molotov
 
 1. **Клонирование репозитория**
     ```bash
-    git clone <https://github.com/ZhikharevAl/FastApi-Molotov-Testing.git>
+    git clone https://github.com/ZhikharevAl/FastApi-Molotov-Testing.git
     ```
 
 2. **Создание и запуск Docker-файла**
    Перейдите в директорию проекта и запустите Docker:
     ```bash
-    cd <FastApi-Molotov-Testing>
+    cd FastApi-Molotov-Testing
     docker build -t <название образа> .
     docker run -it --rm <название образа>
     ```
