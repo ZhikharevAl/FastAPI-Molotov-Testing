@@ -40,3 +40,6 @@ pip install molotov
 - `<processes>`: Количество процессов, которые вы хотите использовать для тестирования.
 - `<duration>`: Продолжительность тестирования в секундах.
 - `<script>`: Имя скрипта Molotov, который вы хотите запустить.
+
+
+https://github.com/ZhikharevAl/FastApi-Molotov-Testing/assets/81284552/26d06c37-7fda-4fca-bb72-f485476ae898
